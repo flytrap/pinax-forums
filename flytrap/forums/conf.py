@@ -21,12 +21,11 @@ def load_path_attr(path):
 
 
 class ForumsAppConf(AppConf):
-
     EDIT_TIMEOUT = dict(minutes=3)
-    HOOKSET = "pinax.forums.hooks.ForumsDefaultHookSet"
+    HOOKSET = "flytrap.forums.hooks.ForumsDefaultHookSet"
 
     def configure_hookset(self, value):
         return load_path_attr(value)()
 
     class Meta:
-        prefix = "pinax_forums"
+        prefix = "flytrap_forums"

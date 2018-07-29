@@ -74,7 +74,8 @@ setup(
         "forums": []
     },
     install_requires=[
-        "django>=1.11"
+        "django>=1.11",
+        "flytrap-base"
     ],
     test_suite="runtests.runtests",
     tests_require=[

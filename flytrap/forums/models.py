@@ -27,7 +27,7 @@ class ForumCategory(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse("pinax_forums:category", args=[self.pk])
+        return reverse("flytrap_forums:category", args=[self.pk])
 
     @property
     def forums(self):

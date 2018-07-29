@@ -15,7 +15,7 @@ urlpatterns = [
     url(r"^(?P<forum_id>\d+)/thread/$", ForumThreadView.as_view({'post': 'create', 'get': 'list'})),
     url(r"^(?P<pk>\d+)/$", ForumView.as_view({'get': 'retrieve', 'put': 'update'})),
     url(r'^categories/$', CategoryView.as_view({'post': 'create', 'get': 'list'})),
-    url(r'^category/(?P<pk>\d+)/$', CategoryView.as_view({'get': 'retrieve', 'put': 'update'})),
+    url(r'^category/(?P<pk>\d+)/$', CategoryView.as_view({'get': 'retrieve', 'put': 'update'}), name='category'),
     url(r'^thread/(?P<pk>\d+)/$', ForumThreadView.as_view({'get': 'retrieve'})),
     url(r"^thread/(?P<pk>\d+)/subscribe/$", ForumThreadView.as_view({'post': 'subscribe'})),
     url(r"^thread/(?P<pk>\d+)/unsubscribe/$", ForumThreadView.as_view({'post': 'unsubscribe'})),

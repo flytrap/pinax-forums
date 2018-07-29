@@ -6,14 +6,13 @@ import django
 
 from django.conf import settings
 
-
 DEFAULT_SETTINGS = dict(
     INSTALLED_APPS=[
         "django.contrib.auth",
         "django.contrib.contenttypes",
         "django.contrib.sites",
-        "pinax.forums",
-        "pinax.forums.tests"
+        "flytrap.forums",
+        "flytrap.forums.tests"
     ],
     DATABASES={
         "default": {
@@ -22,7 +21,7 @@ DEFAULT_SETTINGS = dict(
         }
     },
     SITE_ID=1,
-    ROOT_URLCONF="pinax.forums.tests.urls",
+    ROOT_URLCONF="flytrap.forums.tests.urls",
     SECRET_KEY="notasecret",
 )
 
@@ -40,7 +39,7 @@ def runtests(*test_args):
         from django.test.runner import DiscoverRunner
         runner_class = DiscoverRunner
         if not test_args:
-            test_args = ["pinax.forums.tests"]
+            test_args = ["flytrap.forums.tests"]
     except ImportError:
         from django.test.simple import DjangoTestSuiteRunner
         runner_class = DjangoTestSuiteRunner

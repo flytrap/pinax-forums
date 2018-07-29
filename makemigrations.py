@@ -21,13 +21,13 @@ DEFAULT_SETTINGS = dict(
         "django.contrib.auth.middleware.AuthenticationMiddleware",
         "django.contrib.messages.middleware.MessageMiddleware"
     ],
-    ROOT_URLCONF="pinax.forums.urls",
+    ROOT_URLCONF="flytrap.forums.urls",
     INSTALLED_APPS=[
         "django.contrib.auth",
         "django.contrib.contenttypes",
         "django.contrib.sessions",
         "django.contrib.sites",
-        "pinax.forums",
+        "flytrap.forums",
     ],
     SITE_ID=1,
     SECRET_KEY="notasecret"
