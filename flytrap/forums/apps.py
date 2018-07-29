@@ -4,10 +4,9 @@ from django.apps import AppConfig as BaseAppConfig
 
 
 class AppConfig(BaseAppConfig):
-
-    name = "pinax.forums"
-    label = "pinax_forums"
+    name = "flytrap.forums"
+    label = "flytrap_forums"
     verbose_name = "Pinax Fourms"
 
     def ready(self):
-        import_module("pinax.forums.receivers")
+        import_module("flytrap.forums.receivers")

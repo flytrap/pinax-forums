@@ -1,5 +1,3 @@
-from __future__ import unicode_literals
-
 import datetime
 import json
 
@@ -7,7 +5,6 @@ from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
-from django.utils.encoding import python_2_unicode_compatible
 
 from .conf import settings
 from .hooks import hookset
@@ -19,14 +16,9 @@ def issue_update(kind, **kwargs):
     pass
 
 
-@python_2_unicode_compatible
 class ForumCategory(models.Model):
-
     title = models.CharField(max_length=100)
     parent = models.ForeignKey("self", null=True, blank=True, related_name="subcategories", on_delete=models.CASCADE)
-
-    # @@@ total descendant forum count?
-    # @@@ make group-aware
 
     class Meta:
         verbose_name_plural = "forum categories"
@@ -42,9 +34,7 @@ class ForumCategory(models.Model):
         return self.forum_set.order_by("title")
 
 
-@python_2_unicode_compatible
 class Forum(models.Model):
-
     title = models.CharField(max_length=100)
     description = models.TextField()
     closed = models.DateTimeField(null=True, blank=True)
@@ -238,8 +228,8 @@ class Forum(models.Model):
 
 
 class ForumPost(models.Model):
-
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="%(app_label)s_%(class)s_related", on_delete=models.CASCADE)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="%(app_label)s_%(class)s_related",
+                               on_delete=models.CASCADE)
     content = models.TextField()
     content_html = models.TextField()
     created = models.DateTimeField(default=timezone.now, editable=False)
@@ -259,9 +249,7 @@ class ForumPost(models.Model):
         return False
 
 
-@python_2_unicode_compatible
 class ForumThread(ForumPost):
-
     # used for code that needs to know the kind of post this object is.
     kind = "thread"
 
@@ -352,7 +340,6 @@ class ForumThread(ForumPost):
 
 
 class ForumReply(ForumPost):
-
     # used for code that needs to know the kind of post this object is.
     kind = "reply"
 
@@ -364,7 +351,6 @@ class ForumReply(ForumPost):
 
 
 class UserPostCount(models.Model):
-
     user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="post_count", on_delete=models.CASCADE)
     count = models.IntegerField(default=0)
 
@@ -387,7 +373,6 @@ class UserPostCount(models.Model):
 
 
 class ThreadSubscription(models.Model):
-
     thread = models.ForeignKey(ForumThread, related_name="subscriptions", on_delete=models.CASCADE)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="forum_subscriptions", on_delete=models.CASCADE)
     kind = models.CharField(max_length=15)

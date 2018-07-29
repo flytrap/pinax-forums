@@ -46,38 +46,35 @@ apps with the goal of providing an out of the box forums solution.
 Supported Django and Python Versions
 ------------------------------------
 
-+-----------------+-----+-----+-----+-----+
-| Django / Python | 2.7 | 3.4 | 3.5 | 3.6 |
-+=================+=====+=====+=====+=====+
-|  1.11           |  *  |  *  |  *  |  *  |
-+-----------------+-----+-----+-----+-----+
-|  2.0            |     |  *  |  *  |  *  |
-+-----------------+-----+-----+-----+-----+
++-----------------+-----+-----+-----+
+| Django / Python | 3.4 | 3.5 | 3.6 |
++=================+=====+=====+=====+
+|  1.11           |  *  |  *  |  *  |
++-----------------+-----+-----+-----+
+|  2.0            |  *  |  *  |  *  |
++-----------------+-----+-----+-----+
 """
-
 
 # Publish Helper.
 if sys.argv[-1] == 'publish':
     os.system('python setup.py sdist bdist_wheel upload')
     sys.exit()
 
-    
 setup(
-    author="Pinax Team",
-    author_email="team@pinaxprojects.com",
+    author="flytrap",
+    author_email="hiddenstat@gmail.com",
     description="an extensible forum app for Django and Pinax",
-    name="pinax-forums",
+    name="flytrap-forums",
     long_description=LONG_DESCRIPTION,
     version=VERSION,
-    url="http://github.com/pinax/pinax-forums/",   
+    url="http://github.com/flytrap/pinax-forums/",
     license="MIT",
     packages=find_packages(),
     package_data={
         "forums": []
     },
     install_requires=[
-        "django>=1.11",
-        "django-appconf>=1.0.2"
+        "django>=1.11"
     ],
     test_suite="runtests.runtests",
     tests_require=[
@@ -92,10 +89,7 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
         "Programming Language :: Python",
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         "Topic :: Software Development :: Libraries :: Python Modules",

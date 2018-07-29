@@ -6,7 +6,6 @@ import django
 
 from django.conf import settings
 
-
 DEFAULT_SETTINGS = dict(
     DEBUG=True,
     USE_TZ=True,
@@ -46,7 +45,7 @@ def run(*args):
 
     django.core.management.call_command(
         "makemigrations",
-        "pinax_forums",
+        "flytrap_forums",
         *args
     )
 
